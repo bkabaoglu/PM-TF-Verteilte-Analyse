@@ -1,0 +1,78 @@
+name: 🐞 Skript / Technisches Problem
+description: Melde ein technisches Problem mit Skripten, Servern oder Daten-Workflows
+title: "[Problem]: "
+labels: ["bug"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke fürs Melden des Problems!  
+        Du musst nicht super technisch sein – kurze, einfache Erklärungen reichen völlig 👍
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Beschreibe das Problem kurz (anfängerfreundlich)
+      description: Stell dir vor, du erklärst es einer neuen Person im Team.
+      placeholder: "Wenn ich das Skript starte, bricht es nach der Hälfte ab und erstellt keine Ausgabedateien."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: cause
+    attributes:
+      label: Vermutete Ursache
+      description: Eine grobe Einschätzung reicht – kann später angepasst werden.
+      options:
+        - Paket-/Library-Problem
+        - Server-/Umgebungsproblem
+        - Datenstruktur/-format
+        - Konfiguration/Einstellungen
+        - Berechtigungen/Zugriff
+        - Unbekannt
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: works_elsewhere
+    attributes:
+      label: Funktioniert der Code an anderen Standorten?
+      options:
+        - label: Ja – funktioniert woanders
+        - label: Nein – funktioniert nirgends
+
+  - type: textarea
+    id: differences
+    attributes:
+      label: Beobachtete Unterschiede
+      description: Unterschiede zwischen funktionierender und fehlerhafter Umgebung
+      placeholder: "Andere Datenstruktur, andere Config-Datei, neuere Paketversion, fehlende Rechte ..."
+
+  - type: input
+    id: responsible
+    attributes:
+      label: Verantwortliche Person(en)
+      placeholder: "@username oder Teamname"
+
+  - type: checkboxes
+    id: researcher_input
+    attributes:
+      label: Input von Forschenden nötig?
+      options:
+        - label: Ja – fachlicher Input nötig
+        - label: Nein – rein technisches Problem
+
+  - type: textarea
+    id: researcher_why
+    attributes:
+      label: Falls ja – warum?
+      placeholder: "Klärung der Datenstruktur, erwarteter Outputs oder experimenteller Annahmen nötig."
+
+  - type: textarea
+    id: error_logs
+    attributes:
+      label: Fehlermeldungen / Logs (falls vorhanden)
+      render: shell
+      placeholder: "Hier Stacktrace oder Fehlermeldung einfügen"
